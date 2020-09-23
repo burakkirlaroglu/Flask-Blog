@@ -49,7 +49,7 @@ class ArticleForm(Form):
 app = Flask(__name__)
 app.static_folder = "static"
 
-app.secret_key = "ybblogtest"
+app.secret_key = "secret_key"
 app.config["PERMANENT_SESSION_LIFETIME"] = timedelta(minutes=30)
 app.config["SESSION_REFRESH_EACH_REQUEST"] = True
 
@@ -57,7 +57,7 @@ app.config["SESSION_REFRESH_EACH_REQUEST"] = True
 app.config["MYSQL_HOST"] = "127.0.0.1"
 app.config["MYSQL_USER"] = "root"
 app.config["MYSQL_PASSWORD"] = ""
-app.config["MYSQL_DB"] = "ybblog"
+app.config["MYSQL_DB"] = "your_database"
 app.config["MYSQL_CURSORCLASS"] = "DictCursor"
 
 mysql = MySQL(app)
