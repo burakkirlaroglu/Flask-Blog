@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<div class="container jumbotron" style="background-color: steelblue;">
+    <h3>Senin Makalelerin</h3>
+    <hr>
+    <p>Paylaşımların için teşekkürler {{session["username"]}}</p>
+</div>
+
+<div class="container">
+    <a href="/addarticle" class="btn btn-success">Makale Ekle</a>
+    <hr>
+    {% if articles %}
+    <table class="table table-hover table-dark">
+        <thead>
+            <tr>
+                <!-- <th scope="col">id</th> -->
+                <th scope="col">Başlık</th>
+                <th scope="col">Yazar</th>
+                <th scope="col">Tarih</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for art in articles %}
+            <tr>
+                <!-- <th scope="row">{{art.id}}</th> -->
+                <td><a class="btn btn-dark" href="/article/{{art.id}}">{{art.title}}</a></td>
+                <td>{{art.author}}</td>
+                <td>{{art.created_date}}</td>
+                <td><a href="/edit/{{art.id}}" class="btn btn-warning">Güncelle</a></td>
+                <td><a href="/delete/{{art.id}}" class="btn btn-danger">Sil</a></td>
+            </tr>
+
+            {% endfor %}
+        </tbody>
+    </table>
+
+    {% else %}
+    <div>Henüz makalen yok!</div>
+    {% endif %}
+    
+
+</div>
+{% endblock body %}

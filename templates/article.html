@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+
+{% block body %}
+<div class="container jumbotron" style="background-color: burlywood">
+    <h3>Makale</h3>
+    <hr>
+</div>
+<div class="container">
+    {% if article %}
+        <h4>{{article.title}}</h4>
+        <hr>
+        Yazar : {{article.author}}
+        <hr>
+        Tarih : {{article.created_date}}
+        <hr>
+        {{article.content|safe}}    
+    {% else %}
+        <div class = "alert alert-danger"> Böyle bir makale bulunmuyor... </div>
+    {% endif %}
+</div>
+
+{% endblock body %}
