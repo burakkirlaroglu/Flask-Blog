@@ -6,16 +6,6 @@ from functools import wraps
 from datetime import timedelta
 
 
-
-# def session_expired(f):
-#     @wraps(f)
-#     def decorator_function(*args, **kwargs):
-#         app.permanent_session_lifetime = timedelta(minutes=5.0)
-#         session.parmanent = True
-#         flash("Your session is ended", "warning")
-#         return redirect("login")
-#     return decorator_function
-
 def login_required(f):
     @wraps(f)
     def decorator_function(*args, **kwargs):
@@ -54,7 +44,7 @@ app.config["PERMANENT_SESSION_LIFETIME"] = timedelta(minutes=30)
 app.config["SESSION_REFRESH_EACH_REQUEST"] = True
 
 
-app.config["MYSQL_HOST"] = "127.0.0.1"
+app.config["MYSQL_HOST"] = "localhost"
 app.config["MYSQL_USER"] = "root"
 app.config["MYSQL_PASSWORD"] = ""
 app.config["MYSQL_DB"] = "your_database"
